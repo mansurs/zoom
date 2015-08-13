@@ -13,7 +13,8 @@
 		touch: true, // enables a touch fallback
 		onZoomIn: false,
 		onZoomOut: false,
-		magnify: 1
+		magnify: 1,
+		smallPicturesZoomOff: true
 	};
 
 	// Core Zoom Logic, independent of event listeners.
@@ -123,6 +124,13 @@
 			}());
 
 			img.onload = function () {
+
+				// too small images should not be zoomed
+				if (settings.smallPicturesZoomOff
+					&& ((this.width * settings.magnify) < $target.width() || (this.height * settings.magnify) < $target.height())) {
+					return;
+				}
+
 				var zoom = $.zoom(target, source, img, settings.magnify);
 
 				function start(e) {
