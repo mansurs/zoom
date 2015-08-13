@@ -1,7 +1,7 @@
 /*!
-	Zoom 1.7.14
+	Zoom 1.7.15
 	license: MIT
-	http://www.jacklmoore.com/zoom
+	https://github.com/mansurs/zoom
 */
 (function ($) {
 	var defaults = {
